@@ -5,10 +5,14 @@ export const MyContext = createContext()
 const ContextProvider = (props) => {
 
     const [lang, setLang] = useState("EN");
+    console.log(lang)
 
+    const toggleCountry = (country) => {
+        setLang(country)
+    }
 
     return (
-        <MyContext.Provider value={{lang}}>
+        <MyContext.Provider value={{lang, toggleCountry}}>
             {props.children}
         </MyContext.Provider>
     );

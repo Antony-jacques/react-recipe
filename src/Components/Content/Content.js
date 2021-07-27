@@ -8,7 +8,9 @@ const Content = () => {
     console.log(lang)
     return (
         <div className="content">
-            <h1>{traductions.FR.title}</h1>
+            <h1>{traductions[lang].title}</h1>
+            {/*  [] : notation quand les noms des propriétés sont déterminés de façon dynamique.
+            les valeurs utilisées entre les crochets sont automatiquement converties en chaînes de caractères  */}
         </div>
     );
 }
