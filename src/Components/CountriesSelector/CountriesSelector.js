@@ -12,9 +12,9 @@ console.log(toggleCountry)
 
     return (
         <div className="CountriesSelector">
-            <img onClick={()=>{toggleCountry("FR")}} src={FrenchFlag} alt=""/>
-            <img onClick={()=>{toggleCountry("ES")}} src={SpanishFlag} alt=""/>
-            <img onClick={()=>{toggleCountry("EN")}} src={UKFlag} alt=""/>
+            <img onClick={()=>{toggleCountry("French")}} src={FrenchFlag} alt=""/>
+            <img onClick={()=>{toggleCountry("Spanish")}} src={SpanishFlag} alt=""/>
+            <img onClick={()=>{toggleCountry("British")}} src={UKFlag} alt=""/>
         </div>
     );
 }

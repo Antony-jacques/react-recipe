@@ -10,7 +10,7 @@ const FetchMeal = () => {
     
     const getRecipe = ()=>{
 
-            fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
+            fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${lang}`)
             .then(response => response.json()) // transforme la rp en json afin de pouvoir la parcourir
             .then(response => {
                 setRecipeArray(response.meals)
@@ -19,15 +19,22 @@ const FetchMeal = () => {
     }
     
     
-   useEffect(getRecipe,[])
+   useEffect(getRecipe,[lang])
     
     
 
     console.log('recipeArray', recipeArray)
+    console.log('lang', lang)
 
     return (
         <div>
-            hello
+            {recipeArray.map((val,index)=>{
+                return(
+                    <div>
+                        {val.strMeal}
+                    </div>
+                )
+            })}
         </div>
     );
 }
