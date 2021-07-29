@@ -4,6 +4,7 @@ import  Content from './Components/Content/Content.js'
 import CountriesSelector from './Components/CountriesSelector/CountriesSelector.js'
 import ContextProvider from './Components/Context/Context.js'
 import FetchMeal from './Components/FetchMeal/FetchMeal.js'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -11,7 +12,6 @@ function App() {
       <ContextProvider>
       <CountriesSelector/>
         <Content/>
-        <FetchMeal/>
         </ContextProvider>
 
 
