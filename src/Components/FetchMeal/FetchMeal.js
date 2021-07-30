@@ -1,11 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { MyContext } from "../Context/Context.js";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 
 import "./FetchMeal.css";
 
@@ -46,7 +43,16 @@ const FetchMeal = () => {
                 <Card key={index} className="recipe-card">
                   <Card.Img variant="top" src={val.strMealThumb} />
                   <Card.Body>
-                    <Card.Title>{val.strMeal}</Card.Title>
+                    <Card.Title>
+                    <Link 
+                    to={{
+                      pathname: '/single',
+                      state:{
+                        idMeal: val.idMeal
+
+                      }
+                    }}>{val.strMeal}</Link>
+                      </Card.Title>
                     <Card.Text>
                       
                     </Card.Text>
