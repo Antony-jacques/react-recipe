@@ -15,7 +15,7 @@ function App() {
           <Route path="/" exact component ={HomePage}/>
 
             <Route path="/single"exact component ={SingleRecipe}/>
-            <Route path="/single/:slug"exact component ={SingleRecipe}/>
+            <Route path="/single/:slug"exact component ={SingleRecipe} />
 
             <Route path="/"  component ={() =>  <div>Erreur 404</div>  }/>
 
