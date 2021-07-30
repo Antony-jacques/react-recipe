@@ -9,6 +9,9 @@ import Col from "react-bootstrap/Col";
 
 import "./FetchMeal.css";
 
+import {Link} from 'react-router-dom'
+
+
 const FetchMeal = () => {
   const { lang } = useContext(MyContext);
 
@@ -29,6 +32,8 @@ const FetchMeal = () => {
 
   return (
     <div id="recipe-list">
+                  <Link to="/single">Single</Link>
+
         <Container style={{ display: "flex", justifyContent: "center" }}>
         <Row>
             {/* {recipeArray.slice(0, 6).map((val, index) => { */}
