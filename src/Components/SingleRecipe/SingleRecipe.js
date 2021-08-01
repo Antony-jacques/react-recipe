@@ -33,23 +33,26 @@ const SingleRecipe = () => {
             console.log('useeffect')
         };
 
+        if(singleMeal){
+ 
+            for(let i= 1; i<=20; i++){
+                if(singleMeal[`strIngredient${i}`]){
+                   //  console.log(`${singleMeal[`strIngredient${i}`]} - ${singleMeal[`strMeasure${i}`]} `)
+                    ingredientAray.push(`${singleMeal[`strIngredient${i}`]} - ${singleMeal[`strMeasure${i}`]} `)
+    
+                }
+           }
+        }
+
         useEffect(
             fecthSingleMeal
           , []);
         
-       if(singleMeal){
-
-           for(let i= 1; i<=20; i++){
-               if(singleMeal[`strIngredient${i}`]){
-                   console.log('les ingredients',singleMeal[`strIngredient${i}`])
-   
-               }
-          }
-       }
        
 
 //   console.log(singleMeal);
   console.log("singleMeal", singleMeal);
+  console.log("ingredientAray", ingredientAray);
 
 
 
@@ -64,26 +67,26 @@ console.log(singleMeal)
       
       <Container>
   <Row>
-    <Col style={{backgroundColor:'red'}} md={4}>sm=4
+    <Col style={{backgroundColor:'red'}} md={4}>
+      <h2>{singleMeal.strMeal}</h2>
     <img style={{width:'100%'}} src={singleMeal.strMealThumb} alt=""/>
 
     </Col>
-    <Col style={{backgroundColor:'green'}} md={8}>sm=8
+    <Col style={{padding:'1rem'}} md={8}>
+      <h2>Ingrédients</h2>
+      <ul>
 
 
-{/*
-Object.keys(singleMeal).map(function(keyName, keyIndex) {
-  // use keyName to get current key's name
-  // and a[keyName] to get its value
-  if(singleMeal[keyName]!==""){
-      return(
-          <p>{keyName} - {singleMeal[keyName]} </p>
-      )
-  }
-})
-
-*/}
+        {ingredientAray.map((val,index)=>{
+          return(
+            <li key={index}>{val}</li>
+            )
+          })}
     
+          </ul>
+          <p>
+            {singleMeal.strInstructions}
+          </p>
     </Col>
   </Row>
   </Container>
