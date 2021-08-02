@@ -1,38 +1,49 @@
-#single-recipe .recipe-card{
-    width: 18rem;
-    margin:2rem auto;
-    border-radius: 30px;
-    box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
-    overflow: hidden;
-    padding:0
+#single-recipe .recipe-card {
+  width: 18rem;
+  margin: 2rem auto;
+  border-radius: 30px;
+  box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
+  overflow: hidden;
+  padding: 0;
 }
 
-.recipe-card:hover img{
-
-        transform:scale(1.1);
-        transition: all 0.5s 0s ease;
-
+.recipe-card:hover img {
+  transform: scale(1.1);
+  transition: all 0.5s 0s ease;
 }
 
 .card-body {
-    flex: 1 1 auto;
-    padding: 1rem 1rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    position: absolute;
-    /* border: 0; */
-    bottom: 0;
-    /* background-color: white; */
-    /* background-color: #ff6f61; */
-    background-color: rgb(255, 140, 130);
-    color:white;
-    width: 100%;
-    border-radius: 15px;
-
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  position: absolute;
+  /* border: 0; */
+  bottom: 0;
+  /* background-color: white; */
+  /* background-color: #ff6f61; */
+  background-color: rgb(255, 140, 130);
+  color: white;
+  width: 100%;
+  border-radius: 15px;
 }
 
-@media screen and (max-width:700px){
+.test {
+  background: lightgoldenrodyellow;
+}
 
+#ingredients .ingredient {
+  list-style-type: none;
+  width: 250px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 700px) {
+    #ingredients .ingredient{
+        margin:auto;
+        width: 90vw;
+    }
 }

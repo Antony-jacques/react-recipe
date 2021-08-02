@@ -70,27 +70,38 @@ const SingleRecipe = () => {
   return (
     <div>
       <h1>SingleRecipe</h1>
+      
+      <div>
+        <button onClick={() => history.push("/")}>Reteour à l'accueil</button>
+      </div>
       {singleMeal && (
         <Container>
           <Row>
             <Col style={{  }} md={4}>
               <h2>{singleMeal.strMeal}</h2>
               <img
-                style={{ width: "100%" }}
+                style={{ width: "100%", borderRadius:'15px' }}
                 src={singleMeal.strMealThumb}
                 alt=""
+
               />
             </Col>
             <Col style={{ padding: "1rem" }} md={8}>
-              <h2>Ingrédients</h2>
-              <Container style={{ display: "flex", justifyContent: "center" }}>
+              {/* <h2>Ingrédients</h2> */}
+
+              <Accordion >
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Ingrédients</Accordion.Header>
+                  <Accordion.Body>
+
+                  <Container style={{ display: "flex", justifyContent: "center" }}>
         <Row> 
 
-              <ul style={{    display: 'flex',
+              <ul id="ingredients" style={{    display: 'flex',
     flexWrap: 'wrap'}}>
                 {ingredientAray.map((val, index) => {
                   return (
-                    <li style={{listStyleType:'none', maxWidth:'200px', margin:'2rem'}} key={index}>
+                    <li className={`ingredient   ${(index+1) % 2 > 0 && 'test'}`}  key={index}>
                       <img style={{width:'200px'}} src={val.image} alt="" />
                       <h3>
                       {val.name} 
@@ -98,18 +109,24 @@ const SingleRecipe = () => {
                       <h4>
                       {val.quantity}
                       </h4>
+
                     </li>
                   );
                 })}
               </ul>
               </Row>
           </Container>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
 
-              <Accordion defaultActiveKey="0">
+
+
+              <Accordion >
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Instructions</Accordion.Header>
                   <Accordion.Body>
-                    <ol style={{listStyleType: 'none', textAlign: 'left'}}>
+                    <ol style={{listStyleType: 'none', textAlign: 'left', padding:'0px'}}>
                       {instructions.map((val, index) => {
                         return (
                           <li style={{margin:'2rem'}} key={index}>
@@ -133,12 +150,7 @@ const SingleRecipe = () => {
 
     */}
 
-      <div>
-        <button onClick={() => history.push("/")}>Reteour à l'accueil</button>
-      </div>
-      <div>
-        <button onClick={() => console.log("hellooooo")}>effects</button>
-      </div>
+
     </div>
   );
 };
