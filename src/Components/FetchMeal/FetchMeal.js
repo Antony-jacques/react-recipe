@@ -6,8 +6,7 @@ import Card from "react-bootstrap/Card";
 
 import "./FetchMeal.css";
 
-import {Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const FetchMeal = () => {
   const { lang } = useContext(MyContext);
@@ -29,40 +28,39 @@ const FetchMeal = () => {
 
   return (
     <div id="recipe-list">
-                  <Link to="/single">Single</Link>
 
-        <Container style={{ display: "flex", justifyContent: "center" }}>
+      <Container style={{ display: "flex", justifyContent: "center" }}>
         <Row>
-            {/* {recipeArray.slice(0, 6).map((val, index) => { */}
-            {recipeArray.map((val, index) => {
-              //.slice permet de restreindre l'array à n éléments
-              return (
+          {/* {recipeArray.slice(0, 6).map((val, index) => { */}
+          {recipeArray.map((val, index) => {
+            //.slice permet de restreindre l'array à n éléments
+            return (
+              // <Col md={6} lg={6} xl={4}>
 
-                // <Col md={6} lg={6} xl={4}>
+                    <Link
+                      to={{
+                        pathname: "/single",
+                        state: {
+                          idMeal: val.idMeal,
+                        },
+                      }}
+                      key={index} className="recipe-card"
+                    >
+              <Card >
+                <Card.Img variant="top" src={val.strMealThumb} />
+                <Card.Body>
+                  <Card.Title>
+                      {val.strMeal}
+                  </Card.Title>
+                  <Card.Text></Card.Text>
+                  {/* <Button variant="primary">Go somewhere</Button> */}
+                </Card.Body>
+              </Card>
+                    </Link>
 
-                <Card key={index} className="recipe-card">
-                  <Card.Img variant="top" src={val.strMealThumb} />
-                  <Card.Body>
-                    <Card.Title>
-                    <Link 
-                    to={{
-                      pathname: '/single',
-                      state:{
-                        idMeal: val.idMeal
-
-                      }
-                    }}>{val.strMeal}</Link>
-                      </Card.Title>
-                    <Card.Text>
-                      
-                    </Card.Text>
-                    {/* <Button variant="primary">Go somewhere</Button> */}
-                  </Card.Body>
-                </Card>
-                
-                // </Col>
-              );
-            })}
+              // </Col>
+            );
+          })}
         </Row>
       </Container>
     </div>

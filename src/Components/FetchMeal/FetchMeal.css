@@ -4,7 +4,7 @@
     border-radius: 30px;
     box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
     overflow: hidden;
-    padding:0
+    padding:0;
 }
 
 #recipe-list .recipe-card:hover img{
@@ -31,6 +31,13 @@
     width: 100%;
     border-radius: 15px;
 
+}
+
+/* Eviter que l'image dépasse lors du hover */
+.card{
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    overflow: hidden;
 }
 
 @media screen and (max-width:700px){
