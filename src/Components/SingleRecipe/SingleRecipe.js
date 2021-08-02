@@ -6,6 +6,7 @@ import "./SingleRecipe.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Accordion from "react-bootstrap/Accordion";
 
 const SingleRecipe = () => {
   let history = useHistory();
@@ -38,11 +39,19 @@ const SingleRecipe = () => {
     for (let i = 1; i <= 20; i++) {
       if (singleMeal[`strIngredient${i}`]) {
         //  console.log(`${singleMeal[`strIngredient${i}`]} - ${singleMeal[`strMeasure${i}`]} `)
-        ingredientAray.push(
-          `${singleMeal[`strIngredient${i}`]} - ${
-            singleMeal[`strMeasure${i}`]
-          } `
-        );
+        // ingredientAray.push(
+        //   `${singleMeal[`strIngredient${i}`]} - ${
+        //     singleMeal[`strMeasure${i}`]
+        //   } `
+        // );
+
+        ingredientAray.push({
+          name: singleMeal[`strIngredient${i}`],
+          quantity: singleMeal[`strMeasure${i}`],
+          image: `https://www.themealdb.com/images/ingredients/${
+            singleMeal[`strIngredient${i}`]
+          }.png`,
+        });
       }
     }
 
@@ -56,16 +65,15 @@ const SingleRecipe = () => {
   console.log("singleMeal", singleMeal);
   console.log("ingredientAray", ingredientAray);
 
-  console.log(singleMeal);
+  // console.log(singleMeal);
 
   return (
     <div>
       <h1>SingleRecipe</h1>
-      <p>{currentMealId}</p>
       {singleMeal && (
         <Container>
           <Row>
-            <Col style={{ backgroundColor: "red" }} md={4}>
+            <Col style={{  }} md={4}>
               <h2>{singleMeal.strMeal}</h2>
               <img
                 style={{ width: "100%" }}
@@ -75,21 +83,45 @@ const SingleRecipe = () => {
             </Col>
             <Col style={{ padding: "1rem" }} md={8}>
               <h2>Ingrédients</h2>
-              <ul>
+              <Container style={{ display: "flex", justifyContent: "center" }}>
+        <Row> 
+
+              <ul style={{    display: 'flex',
+    flexWrap: 'wrap'}}>
                 {ingredientAray.map((val, index) => {
-                  return <li key={index}>{val}</li>;
-                })}
-              </ul>
-              <ol>
-                {instructions.map((val, index) => {
                   return (
-                    <li key={index}>
-                      <h3>Etape {index + 1}</h3>
-                      {val}
+                    <li style={{listStyleType:'none', maxWidth:'200px', margin:'2rem'}} key={index}>
+                      <img style={{width:'200px'}} src={val.image} alt="" />
+                      <h3>
+                      {val.name} 
+                      </h3>
+                      <h4>
+                      {val.quantity}
+                      </h4>
                     </li>
                   );
                 })}
-              </ol>
+              </ul>
+              </Row>
+          </Container>
+
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Instructions</Accordion.Header>
+                  <Accordion.Body>
+                    <ol style={{listStyleType: 'none', textAlign: 'left'}}>
+                      {instructions.map((val, index) => {
+                        return (
+                          <li style={{margin:'2rem'}} key={index}>
+                            <h3>Etape {index + 1}</h3>
+                            {val}
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </Col>
           </Row>
         </Container>
