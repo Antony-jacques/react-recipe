@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import './RandomRecipe.css'
+import { Link } from "react-router-dom";
+
 
 const RandomRecipe = () => {
   const [randomMeal, setRandomMeal] = useState();
@@ -21,7 +25,37 @@ const RandomRecipe = () => {
 
   useEffect(fetchRandomRecipe, []);
 
-  return <div>RandomRecipe</div>;
+  return <div id='recipe-of-the-day'>
+      <h2>Découvrez la recette du moment</h2>
+
+      {randomMeal && 
+      
+      <Link
+                      to={{
+                        pathname: "/single",
+                        state: {
+                          idMeal: randomMeal.idMeal,
+                        },
+                      }}
+                      className="recipe-card"
+                    >
+
+      <Card className="recipe-card">
+                <Card.Img variant="top" src={randomMeal.strMealThumb} />
+                <Card.Body>
+                  <Card.Title>
+                      {randomMeal.strMeal}
+                  </Card.Title>
+                  <Card.Text></Card.Text>
+                  {/* <Button variant="primary">Go somewhere</Button> */}
+                </Card.Body>
+              </Card>
+                    </Link>
+      
+      
+      }
+      
+  </div>;
 };
 
 export default RandomRecipe;
