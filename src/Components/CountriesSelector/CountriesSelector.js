@@ -8,7 +8,7 @@ import UKFlag from '../../assets/united-kingdom.svg'
 const CountriesSelector = () => {
 
 const {toggleCountry} = useContext(MyContext)
-console.log(toggleCountry)
+// console.log(toggleCountry)
 
     return (
         <div className="CountriesSelector">

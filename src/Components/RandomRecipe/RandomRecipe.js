@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import './RandomRecipe.css'
 import { Link } from "react-router-dom";
+import traductions from "../../assets/data.js";
+import {MyContext} from "../Context/Context.js"
+
 
 
 const RandomRecipe = () => {
   const [randomMeal, setRandomMeal] = useState();
 
+  const {lang} = useContext(MyContext)
+  
   const fetchRandomRecipe = () => {
     fetch("https:www.themealdb.com/api/json/v1/1/random.php")
       .then((response) => {
@@ -26,7 +31,7 @@ const RandomRecipe = () => {
   useEffect(fetchRandomRecipe, []);
 
   return <div id='recipe-of-the-day'>
-      <h2>Découvrez la recette du moment</h2>
+      <h2>{traductions[lang].subtitle}</h2>
 
       {randomMeal && 
       

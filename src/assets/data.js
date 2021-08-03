@@ -1,15 +1,20 @@
 const traductions = {
   French: {
     title: "Bienvenue sur notre site de recettes",
-    txt: "Découvrez nos fonctionnalités et nos services !",
+    subtitle: "Découvrez la recette du moment !",
+    txt: "Nos spécialités françaises"
   },
   British: {
-    title: "Hello and welcome to the site.",
-    txt: "Discover our features and services!",
+    title: "Hello and welcome to our recipes website.",
+    subtitle: "Discover the recipe of the moment !",
+    txt: "Our British specialties"
+
   },
   Spanish: {
-    title: "Hola y bienvenido al sitio.",
-    txt: "¡Descubra nuestras características y servicios!",
+    title: "Hola y bienvenido a nuestro sitio de recetas.",
+    subtitle: "¡Descubra la receta del momento !",
+    txt: "Nuestras especialidades españolas"
+
   },
 };
 

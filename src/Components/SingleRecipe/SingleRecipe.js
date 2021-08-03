@@ -68,19 +68,18 @@ const SingleRecipe = () => {
   // console.log(singleMeal);
 
   return (
-    <div>
-      <h1>SingleRecipe</h1>
+    <div className="mt-5">
       
       <div>
-        <button onClick={() => history.push("/")}>Reteour à l'accueil</button>
+        <button onClick={() => history.push("/")}>Retour à l'accueil</button>
       </div>
       {singleMeal && (
-        <Container>
+        <Container className="mt-5">
           <Row>
             <Col style={{  }} md={4}>
-              <h2>{singleMeal.strMeal}</h2>
+              <h2 >{singleMeal.strMeal}</h2>
               <img
-                style={{ width: "100%", borderRadius:'15px' }}
+                style={{ width: "100%", borderRadius:'15px', marginTop:'2rem' }}
                 src={singleMeal.strMealThumb}
                 alt=""
 
