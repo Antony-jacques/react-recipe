@@ -6,21 +6,18 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
+import ScrollTopBtn from "../ScrollTopBtn/ScrollTopBtn.js";
 
 const SingleRecipe = () => {
+  var docWidth = document.documentElement.offsetWidth;
 
-var docWidth = document.documentElement.offsetWidth;
-
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
+  [].forEach.call(document.querySelectorAll("*"), function (el) {
     if (el.offsetWidth > docWidth) {
       console.log(el);
     }
-  }
-);
+  });
 
-  
   let history = useHistory();
   let location = useLocation();
   let currentMealId = location.state.idMeal;
@@ -30,7 +27,7 @@ var docWidth = document.documentElement.offsetWidth;
   const ingredientAray = [];
   let instructions = [];
 
-  const fecthSingleMeal =  () => {
+  const fecthSingleMeal = () => {
     fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${currentMealId}`
     )
@@ -81,66 +78,80 @@ var docWidth = document.documentElement.offsetWidth;
 
   return (
     <div className="mt-5">
-      
       <div>
-        <button onClick={() => history.push("/")}>Retour à l'accueil</button>
+        <Button variant="dark" onClick={() => history.push("/")}>
+          Retour à l'accueil
+        </Button>
       </div>
       {singleMeal && (
         <Container className="mt-5">
           <Row>
-            <Col style={{  }} md={4}>
-              <h2 >{singleMeal.strMeal}</h2>
+            <Col style={{}} md={4}>
+              <h2>{singleMeal.strMeal}</h2>
               <img
-                style={{ width: "100%", borderRadius:'15px', marginTop:'2rem' }}
+                style={{
+                  width: "100%",
+                  borderRadius: "15px",
+                  marginTop: "2rem",
+                }}
                 src={singleMeal.strMealThumb}
                 alt=""
-
               />
             </Col>
             <Col style={{ padding: "1rem" }} md={8}>
               {/* <h2>Ingrédients</h2> */}
 
-              <Accordion >
+              <Accordion>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Ingrédients</Accordion.Header>
                   <Accordion.Body>
-
-                  <Container style={{ display: "flex", justifyContent: "center" }}>
-        <Row> 
-
-              <ul id="ingredients" style={{    display: 'flex',
-    flexWrap: 'wrap'}}>
-                {ingredientAray.map((val, index) => {
-                  return (
-                    <li className={`ingredient   ${(index+1) % 2 > 0 && 'test'}`}  key={index}>
-                      <img style={{width:'200px'}} src={val.image} alt="" />
-                      <h3>
-                      {val.name} 
-                      </h3>
-                      <h4>
-                      {val.quantity}
-                      </h4>
-
-                    </li>
-                  );
-                })}
-              </ul>
-              </Row>
-          </Container>
+                    <Container
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
+                      <Row>
+                        <ul
+                          id="ingredients"
+                          style={{ display: "flex", flexWrap: "wrap" }}
+                        >
+                          {ingredientAray.map((val, index) => {
+                            return (
+                              <li
+                                className={`ingredient   ${
+                                  (index + 1) % 2 > 0 && "test"
+                                }`}
+                                key={index}
+                              >
+                                <img
+                                  style={{ width: "200px" }}
+                                  src={val.image}
+                                  alt=""
+                                />
+                                <h3>{val.name}</h3>
+                                <h4>{val.quantity}</h4>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </Row>
+                    </Container>
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
 
-
-
-              <Accordion >
+              <Accordion>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Instructions</Accordion.Header>
                   <Accordion.Body>
-                    <ol style={{listStyleType: 'none', textAlign: 'left', padding:'0px'}}>
+                    <ol
+                      style={{
+                        listStyleType: "none",
+                        textAlign: "left",
+                        padding: "0px",
+                      }}
+                    >
                       {instructions.map((val, index) => {
                         return (
-                          <li style={{margin:'2rem'}} key={index}>
+                          <li style={{ margin: "2rem" }} key={index}>
                             <h3>Etape {index + 1}</h3>
                             {val}
                           </li>
@@ -155,13 +166,7 @@ var docWidth = document.documentElement.offsetWidth;
         </Container>
       )}
 
-      {/*
-      
-      
-
-    */}
-
-
+      <ScrollTopBtn />
     </div>
   );
 };

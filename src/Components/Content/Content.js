@@ -6,6 +6,8 @@ import { MyContext } from "../Context/Context.js";
 
 import FetchMeal from '../FetchMeal/FetchMeal.js'
 import RandomRecipe from '../RandomRecipe/RandomRecipe.js'
+import ScrollTopBtn from '../ScrollTopBtn/ScrollTopBtn.js'
+
 
 const Content = () => {
   const { lang } = useContext(MyContext);
@@ -20,6 +22,8 @@ const Content = () => {
             les valeurs utilisées entre les crochets sont automatiquement converties en chaînes de caractères  */}
             <RandomRecipe/>
             <FetchMeal/>
+            <ScrollTopBtn/>
+
     </div>
   );
 };
