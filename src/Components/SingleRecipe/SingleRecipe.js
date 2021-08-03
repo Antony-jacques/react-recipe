@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import "./SingleRecipe.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,6 +8,19 @@ import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
 
 const SingleRecipe = () => {
+
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+
+  
   let history = useHistory();
   let location = useLocation();
   let currentMealId = location.state.idMeal;
@@ -18,7 +30,7 @@ const SingleRecipe = () => {
   const ingredientAray = [];
   let instructions = [];
 
-  const fecthSingleMeal = async () => {
+  const fecthSingleMeal =  () => {
     fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${currentMealId}`
     )
@@ -62,8 +74,8 @@ const SingleRecipe = () => {
   useEffect(fecthSingleMeal, []);
 
   //   console.log(singleMeal);
-  console.log("singleMeal", singleMeal);
-  console.log("ingredientAray", ingredientAray);
+  // console.log("singleMeal", singleMeal);
+  // console.log("ingredientAray", ingredientAray);
 
   // console.log(singleMeal);
 

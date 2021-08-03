@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { MyContext } from "../Context/Context.js";
+import traductions from "../../assets/data.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
@@ -9,6 +10,9 @@ import "./FetchMeal.css";
 import { Link } from "react-router-dom";
 
 const FetchMeal = () => {
+
+
+  
   const { lang } = useContext(MyContext);
 
   const [recipeArray, setRecipeArray] = useState([]);
@@ -23,14 +27,15 @@ const FetchMeal = () => {
 
   useEffect(getRecipe, [lang]);
 
-  console.log("recipeArray", recipeArray);
-  console.log("lang", lang);
+  // console.log("recipeArray", recipeArray);
+  // console.log("lang", lang);
 
   return (
-    <div id="recipe-list">
+    <div  id="recipe-list">
 
-      <Container style={{ display: "flex", justifyContent: "center" }}>
+      <Container style={{ display: "flex", justifyContent: "center", marginTop:'4rem' }}>
         <Row>
+          <h3>{traductions[lang].txt}</h3>
           {/* {recipeArray.slice(0, 6).map((val, index) => { */}
           {recipeArray.map((val, index) => {
             //.slice permet de restreindre l'array à n éléments

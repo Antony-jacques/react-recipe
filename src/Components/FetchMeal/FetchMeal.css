@@ -5,6 +5,8 @@
     box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
     overflow: hidden;
     padding:0;
+    box-sizing: border-box;
+
 }
 
 #recipe-list .recipe-card:hover img{
@@ -30,6 +32,8 @@
     color:white;
     width: 100%;
     border-radius: 15px;
+    box-sizing: border-box;
+
 
 }
 
@@ -38,6 +42,8 @@
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     overflow: hidden;
+    box-sizing: border-box;
+
 }
 
 @media screen and (max-width:700px){
