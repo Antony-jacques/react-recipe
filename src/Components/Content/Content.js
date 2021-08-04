@@ -21,7 +21,7 @@ const Content = () => {
       <h1>{traductions[lang].title}</h1>
       {/*  [] : notation quand les noms des propriétés sont déterminés de façon dynamique.
             les valeurs utilisées entre les crochets sont automatiquement converties en chaînes de caractères  */}
-            <RandomRecipe/>
+            {/* <RandomRecipe/> */}
             <FetchMeal/>
             <ScrollTopBtn/>
             {/* <Footer/> */}
