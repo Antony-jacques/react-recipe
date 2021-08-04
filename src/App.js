@@ -8,7 +8,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"
+    >
+      <div className="content-wrap">
+
       <ContextProvider>
         <Router>
           <Switch>
@@ -24,6 +27,7 @@ function App() {
           </Switch>
         </Router>
       </ContextProvider>
+      </div>
     </div>
   );
 }

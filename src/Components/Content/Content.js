@@ -7,6 +7,7 @@ import { MyContext } from "../Context/Context.js";
 import FetchMeal from '../FetchMeal/FetchMeal.js'
 import RandomRecipe from '../RandomRecipe/RandomRecipe.js'
 import ScrollTopBtn from '../ScrollTopBtn/ScrollTopBtn.js'
+import Footer from '../Footer/Footer.js'
 
 
 const Content = () => {
@@ -23,6 +24,7 @@ const Content = () => {
             <RandomRecipe/>
             <FetchMeal/>
             <ScrollTopBtn/>
+            {/* <Footer/> */}
 
     </div>
   );

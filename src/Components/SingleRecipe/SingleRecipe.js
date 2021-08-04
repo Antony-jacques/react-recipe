@@ -8,6 +8,8 @@ import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
 import ScrollTopBtn from "../ScrollTopBtn/ScrollTopBtn.js";
+import Footer from '../Footer/Footer.js'
+
 
 const SingleRecipe = () => {
   var docWidth = document.documentElement.offsetWidth;
@@ -77,14 +79,14 @@ const SingleRecipe = () => {
   // console.log(singleMeal);
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 singleRecipe">
       <div>
         <Button variant="dark" onClick={() => history.push("/")}>
           Retour à l'accueil
         </Button>
       </div>
       {singleMeal && (
-        <Container className="mt-5">
+        <Container style={{paddingBottom:'10rem'}} className="mt-5 ">
           <Row>
             <Col style={{}} md={4}>
               <h2>{singleMeal.strMeal}</h2>
@@ -101,7 +103,7 @@ const SingleRecipe = () => {
             <Col style={{ padding: "1rem" }} md={8}>
               {/* <h2>Ingrédients</h2> */}
 
-              <Accordion>
+              <Accordion style={{overflowX: 'hidden'}}>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Ingrédients</Accordion.Header>
                   <Accordion.Body>
@@ -165,7 +167,7 @@ const SingleRecipe = () => {
           </Row>
         </Container>
       )}
-
+<Footer/>
       <ScrollTopBtn />
     </div>
   );
