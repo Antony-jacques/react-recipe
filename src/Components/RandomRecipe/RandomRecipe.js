@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 const RandomRecipe = () => {
 
   
-  const [randomMeal, setRandomMeal] = useState();
+  const [randomMeal, setRandomMeal] = useState({});
 
   const { lang } = useContext(MyContext);
 
@@ -21,7 +21,7 @@ const RandomRecipe = () => {
         return response.json();
       })
       .then((response) => {
-        return setRandomMeal(response.meals[0]);
+         setRandomMeal(response.meals[0]);
       });
   };
 
@@ -37,7 +37,7 @@ const RandomRecipe = () => {
         <Row>
           <h2>{traductions[lang].subtitle}</h2>
 
-          {randomMeal && (
+          {/* {randomMeal && ( */}
             <Link
               to={{
                 pathname: "/single",
@@ -56,7 +56,7 @@ const RandomRecipe = () => {
                 </Card.Body>
               </Card>
             </Link>
-          )}
+           {/* )} */}
         </Row>
       </Container>
     </div>
