@@ -35,7 +35,6 @@ const RandomRecipe = () => {
       >
         <Row>
           <h2>{traductions[lang].subtitle}</h2>
-          <h2>test</h2>
 
           {randomMeal[0] && (
 
@@ -54,7 +53,6 @@ const RandomRecipe = () => {
                 <Card.Body>
                   <Card.Title>
                     {randomMeal[0].strMeal}
-                    <h2>test</h2>
                     </Card.Title>
                   <Card.Text></Card.Text>
                 </Card.Body>
